@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ARCHIVE>
+   <CARD>
+      <ID>1</ID>
+      <NAME>Andrey</NAME>
+      <MIDDLENAME>Gennadievich</MIDDLENAME>
+      <LASTNAME>Lisovskiy</LASTNAME>
+      <EMAIL>andrlis0506@gmail.com</EMAIL>
+      <PHONE>+375291746832</PHONE>
+      <JOB>Studend</JOB>
+      <DESCRIPTION>@Andrlis</DESCRIPTION>
+    </CARD>
+	<CARD>
+		<ID>2</ID>
+		<NAME>Анастасия</NAME>
+		<MIDDLENAME>Юрьевна</MIDDLENAME>
+		<LASTNAME>Царикович</LASTNAME>
+		<EMAIL>anastasiatsarikovich@gmail.com</EMAIL>
+		<PHONE>+375291823478</PHONE>
+		<JOB>Studend</JOB>
+		<DESCRIPTION>BSU MMF</DESCRIPTION>
+    </CARD>
+</ARCHIVE>
