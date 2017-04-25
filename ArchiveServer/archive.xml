@@ -5,19 +5,19 @@
       <NAME>Andrey</NAME>
       <MIDDLENAME>Gennadievich</MIDDLENAME>
       <LASTNAME>Lisovskiy</LASTNAME>
-      <EMAIL>andrlis0506@gmail.com</EMAIL>
-      <PHONE>+375291746832</PHONE>
+      <EMAIL>andrlis@gmail.com</EMAIL>
+      <PHONE>+375291742578</PHONE>
       <JOB>Studend</JOB>
       <DESCRIPTION>@Andrlis</DESCRIPTION>
     </CARD>
 	<CARD>
 		<ID>2</ID>
-		<NAME>Анастасия</NAME>
-		<MIDDLENAME>Юрьевна</MIDDLENAME>
-		<LASTNAME>Царикович</LASTNAME>
-		<EMAIL>anastasiatsarikovich@gmail.com</EMAIL>
-		<PHONE>+375291823478</PHONE>
+		<NAME>Иванов</NAME>
+		<MIDDLENAME>Иван</MIDDLENAME>
+		<LASTNAME>Иванович</LASTNAME>
+		<EMAIL>ivanov@gmail.com</EMAIL>
+		<PHONE>+375291944598</PHONE>
 		<JOB>Studend</JOB>
-		<DESCRIPTION>BSU MMF</DESCRIPTION>
+		<DESCRIPTION>BSUIR</DESCRIPTION>
     </CARD>
 </ARCHIVE>
