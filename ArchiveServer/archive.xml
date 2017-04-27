@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ARCHIVE>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ARCHIVE>
    <CARD>
       <ID>1</ID>
       <NAME>Andrey</NAME>
@@ -10,14 +9,16 @@
       <JOB>Studend</JOB>
       <DESCRIPTION>@Andrlis</DESCRIPTION>
     </CARD>
-	<CARD>
-		<ID>2</ID>
-		<NAME>Иванов</NAME>
-		<MIDDLENAME>Иван</MIDDLENAME>
-		<LASTNAME>Иванович</LASTNAME>
-		<EMAIL>ivanov@gmail.com</EMAIL>
-		<PHONE>+375291944598</PHONE>
-		<JOB>Studend</JOB>
-		<DESCRIPTION>BSUIR</DESCRIPTION>
+    <CARD>
+      <ID>2</ID>
+      <NAME>Ivan</NAME>
+      <MIDDLENAME>Ivanovich</MIDDLENAME>
+      <LASTNAME>Ivanov</LASTNAME>
+      <EMAIL>ivanov@gmail.com</EMAIL>
+      <PHONE>+375299872578</PHONE>
+      <JOB>Studend</JOB>
+      <DESCRIPTION>BSUIR</DESCRIPTION>
     </CARD>
-</ARCHIVE>
+	
+	
+<CARD><ID>3</ID><NAME>Петров</NAME><MIDDLENAME>Петр</MIDDLENAME><LASTNAME>Петрович</LASTNAME><EMAIL>petrov@gmail.com</EMAIL><PHONE>+375335987632</PHONE><JOB>Инженер</JOB><DESCRIPTION>ITechArt</DESCRIPTION></CARD></ARCHIVE>

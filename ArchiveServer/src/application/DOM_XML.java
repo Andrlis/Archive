@@ -1,12 +1,20 @@
 package application;
 
-import java.io.IOException;
 import java.util.ArrayList;
-
+import java.io.FileOutputStream;
+import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.TransformerFactoryConfigurationError;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -64,5 +72,85 @@ public class DOM_XML {
 			}
 		}
 		return cardList;
+	}
+
+	public void addNewCard(UserCard userCard) {
+		try {
+			root = document.getDocumentElement();
+
+			Element card = document.createElement("CARD");
+			// <ID>
+			Element id = document.createElement("ID");
+			id.setTextContent(String.valueOf(userCard.getCardID()));
+			// <NAME>
+			Element name = document.createElement("NAME");
+			name.setTextContent(userCard.getUserName());
+			// <MIDDLENAME>
+			Element mName = document.createElement("MIDDLENAME");
+			mName.setTextContent(userCard.getUserMiddleName());
+			// <LASTNAME >
+			Element lName = document.createElement("LASTNAME");
+			lName.setTextContent(userCard.getUserLastName());
+			// <EMAIL>
+			Element email = document.createElement("EMAIL");
+			email.setTextContent(userCard.getUserEmail());
+			// <PHONE>
+			Element phone = document.createElement("PHONE");
+			phone.setTextContent(userCard.getUserPhone());
+			// <JOB>
+			Element job = document.createElement("JOB");
+			job.setTextContent(userCard.getUserJob());
+			// <DESCRIPTION>
+			Element description = document.createElement("DESCRIPTION");
+			description.setTextContent(userCard.getUserDescription());
+
+			// Add card`s elements into <Card>
+			card.appendChild(id);
+			card.appendChild(name);
+			card.appendChild(mName);
+			card.appendChild(lName);
+			card.appendChild(email);
+			card.appendChild(phone);
+			card.appendChild(job);
+			card.appendChild(description);
+			// Add <CARD> to the root element
+			root.appendChild(card);
+
+			// Write XML into the file
+			writeDocument(document);
+		} catch (TransformerFactoryConfigurationError ex) {
+			ex.printStackTrace(System.out);
+		} catch (DOMException ex) {
+			ex.printStackTrace(System.out);
+		}
+	}
+
+	// Save DOM to file
+	private static void writeDocument(Document document) throws TransformerFactoryConfigurationError {
+		try {
+			Transformer tr = TransformerFactory.newInstance().newTransformer();
+			DOMSource source = new DOMSource(document);
+			FileOutputStream fos = new FileOutputStream("archive.xml");
+			StreamResult result = new StreamResult(fos);
+			tr.transform(source, result);
+		} catch (TransformerException | IOException e) {
+			e.printStackTrace(System.out);
+		}
+	}
+
+	public void deletePerson(String cardId) {
+		// <CARD>
+		NodeList nodes = document.getElementsByTagName("CARD");
+
+		for (int i = 0; i < nodes.getLength(); i++) {
+			Element card = (Element) nodes.item(i);
+			// <ID>
+			Element id = (Element) card.getElementsByTagName("ID").item(0);
+			String cID = id.getTextContent();
+			if (cID.equals(cardId)) {
+				card.getParentNode().removeChild(card);
+			}
+		}
+		writeDocument(document);
 	}
 }

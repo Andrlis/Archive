@@ -1,11 +1,16 @@
 package application;
 
 import java.net.*;
+import java.util.ArrayList;
+
 import data_classes.Request;
+import data_classes.UserCard;
+
 import java.io.*;
 
 public class Server {
 
+	private DOM_XML dom;
 	private ServerSocket serverSocket;
 	private Socket clientSocket;
 	private ObjectOutputStream objOutputStream;
@@ -15,6 +20,7 @@ public class Server {
 		try {
 			serverSocket = new ServerSocket(2015);
 			System.out.println("ServerSocket constructor");
+			dom = new DOM_XML();
 		} catch (IOException exc) {
 			exc.printStackTrace();
 			System.exit(1);
@@ -54,9 +60,20 @@ public class Server {
 				Request question = (Request) objInputStream.readObject();
 				if (question.requestType == null)
 					break;
-				
-				System.out.println("Server: request type-" + question.requestType + "request message-" + question.requestMessage);
-				//objOutputStream.writeObject(question);
+				if (question.requestType.equals("exit"))
+					break;
+				switch (question.requestType) {
+				case "getAll":
+					Request answer = new Request("answer");
+					ArrayList<UserCard> list = dom.getAllCards();
+					answer.cardList = new ArrayList<UserCard>();
+					answer.cardList.addAll(list);
+					objOutputStream.writeObject(answer);
+					break;
+				}
+				System.out.println(
+						"Server: request type-" + question.requestType + "request message-" + question.requestMessage);
+				// objOutputStream.writeObject(question);
 			}
 		} catch (IOException exc) {
 			exc.printStackTrace();
@@ -64,16 +81,16 @@ public class Server {
 			exc.printStackTrace();
 		}
 	}
-	
-	public void endWork(){
+
+	public void endWork() {
 		System.out.println("end work");
 
-		try{
+		try {
 			objInputStream.close();
 			objOutputStream.close();
 			serverSocket.close();
 			clientSocket.close();
-		} catch(IOException exc) {
+		} catch (IOException exc) {
 			exc.printStackTrace();
 		}
 	}

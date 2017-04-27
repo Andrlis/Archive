@@ -14,4 +14,10 @@ public class Request implements Serializable {
 		requestMessage = null;
 		cardList = null;
 	}
+	
+	public Request(String type){
+		requestType = type;
+		requestMessage = null;
+		cardList = null;
+	}
 }
